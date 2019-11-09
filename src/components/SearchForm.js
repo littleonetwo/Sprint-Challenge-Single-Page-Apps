@@ -1,10 +1,56 @@
-import React, { useState } from "react";
+import React, {useState, useEffect} from "react";
+import {Link} from 'react-router-dom';
+import {Button} from 'reactstrap';
+import 'bootstrap/dist/css/bootstrap.css';
 
-export default function SearchForm() {
- 
+import axios from "axios";
+import { withFormik, Form, Field } from "formik";
+import * as Yup from "yup";
+
+
+const SearchForm = ({values, touched, errors, list}) => {
+  const [searchResults, setSearchResults] = ([]);
+  // useEffect(() =>{
+  //
+  //   if (status) {
+  //     set
+  //   }
+  // })
+  console.log(list);
+
   return (
-    <section className="search-form">
-     // Add a search form here
-    </section>
+
+      <div className="search">
+        <Form>
+          <Field
+            type="text"
+            name="nameSearch"
+            placeholder="Search by Name"
+            value={values.nameSearch}
+          />{' ' }
+          <button type="submit">Go</button>
+        </Form>
+      </div>
+
+
+
   );
 }
+
+const FormikSearchForm = withFormik({
+  mapPropsToValues({ nameSearch }){
+    return {
+      nameSearch: nameSearch || ""
+    };
+  },
+
+  handleSubmit(values, {props}){
+    let results1 = props.list;
+    let finalResults = results1.filter(function(final){
+      return final.name === values.nameSearch;})
+    console.log(results1);
+  }
+
+})(SearchForm);
+
+export default FormikSearchForm;
