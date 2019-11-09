@@ -7,7 +7,7 @@ import SearchForm from "./SearchForm.js";
 
 
 const Header = (props) => {
-  console.log(props);
+  // console.log(props);
   return (
     <header className="ui centered">
       <h1 className="ui center">Rick &amp; Morty Fan Page</h1>

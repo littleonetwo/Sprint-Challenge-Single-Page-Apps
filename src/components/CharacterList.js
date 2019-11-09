@@ -34,7 +34,7 @@ const CharacterList= (props) => {
 
   }, []);
 
-  console.log(characterList);
+  // console.log(characterList);
   props.setList(characterList);
 
   // if(hasRunOnce >0){
@@ -64,9 +64,9 @@ function CharacterDetails({ character }){
   const { gender, image, name, species, status} = character;
   const ref = `/character/${character.id}`;
 
-  function characterSelect(){
-    console.log(character.id);
-  }
+  // function characterSelect(){
+  //   // console.log(character.id);
+  // }
 
   return (
     <Link to={ref}>

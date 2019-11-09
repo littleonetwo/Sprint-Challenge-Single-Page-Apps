@@ -20,7 +20,7 @@ const Character = (props) => {
   },[props.match.params.id]);
 
 
-  console.log(character);
+  // console.log(character);
 
   if (!character) {
     return <div>Loading Character information...</div>;

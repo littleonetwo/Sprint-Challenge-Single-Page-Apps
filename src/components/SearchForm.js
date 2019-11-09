@@ -17,7 +17,7 @@ const SearchForm = ({values, touched, errors, list, setList}) => {
   //     set
   //   }
   // })
-  console.log(list);
+  // console.log(list);
 
   return (
 
@@ -49,10 +49,8 @@ const FormikSearchForm = withFormik({
     let results1 = props.list;
     let finalResults = results1.filter(function(final){
       return final.name.toLowerCase() === values.nameSearch.toLowerCase();})
-    console.log(finalResults[0].id);
+    // console.log(finalResults[0].id);
 
-
-    props.setList(finalResults);
     props.history.push(`/character/${finalResults[0].id}`);
   }
 
