@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import {Link} from 'react-router-dom';
+import {Link, Route, useHistory} from 'react-router-dom';
 import {Button} from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 
@@ -8,8 +8,9 @@ import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 
 
-const SearchForm = ({values, touched, errors, list}) => {
+const SearchForm = ({values, touched, errors, list, setList}) => {
   const [searchResults, setSearchResults] = ([]);
+
   // useEffect(() =>{
   //
   //   if (status) {
@@ -47,8 +48,12 @@ const FormikSearchForm = withFormik({
   handleSubmit(values, {props}){
     let results1 = props.list;
     let finalResults = results1.filter(function(final){
-      return final.name === values.nameSearch;})
-    console.log(results1);
+      return final.name.toLowerCase() === values.nameSearch.toLowerCase();})
+    console.log(finalResults[0].id);
+
+
+    props.setList(finalResults);
+    props.history.push(`/character/${finalResults[0].id}`);
   }
 
 })(SearchForm);

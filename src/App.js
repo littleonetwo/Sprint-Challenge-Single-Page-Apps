@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import Header from "./components/Header.js";
 import CharacterList from "./components/CharacterList.js";
 import CharacterSelect from "./components/CharacterSelect.js";
+import SearchResults from "./components/SearchResults.js";
 
 import axios from 'axios';
 import {Route, Link} from 'react-router-dom';
@@ -47,7 +48,20 @@ export default function App() {
       }
       />
 
-      <Route path= "/search/"
+      <Route path= "/search/" render={props=>
+        <div>
+          <Header
+            {...props}
+            list = {list}
+            setList = {setList}
+          />
+          <SearchResults
+            {...props}
+            list = {list}
+            setList = {setList}
+          />
+        </div>
+      }
 
       />
 
