@@ -29,6 +29,8 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 > Answer:
 
+it allows you to use less data transfer and it allows you to do some neat things easier with displaying and being dynamic.
+
 ## Project Set Up
 
 Follow these steps to set up and work on your project:
